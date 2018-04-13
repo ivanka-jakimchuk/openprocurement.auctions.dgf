@@ -248,12 +248,12 @@ See the `Bid.participationUrl` in the response. Similar, but different, URL can 
 Qualification
 -------------
 After the competitive auction two `awards` are created:
- * for the first candidate (a participant that has submitted the highest valid bid at the auction) - initially has a `pending.verification` status and awaits auction protocol to be uploaded by the organizer;
- * for the second candidate (a participant that has submitted the second highest valid bid at the auction).
+ * for the first candidate (a participant that has submitted the highest valid bid at the auction) - initially has a `pending` status and awaits auction protocol to be uploaded by the organizer;
+ * for the second candidate (a participant that has submitted the second highest valid bid at the auction)- initially has a `pending.waiting` status.
 
 There are two more scenarios that can happen after the competitive auction:
  * If the two highest bidders have invalid bids (lower than auction starting price + minimal step), the awards will not be created at all, and the qualification procedure will automatically receive the "unsuccessful" status. 
- * If the second highest bidder has a bid that is less than the starting price + minimal step, two awards are created, with one of them receiving a pending.verification status and undergoing the qualification procedure, and the other (with an invalid bid) automatically becoming "unsuccessful".
+ * If the second highest bidder has a bid that is less than the starting price + minimal step, two awards are created, with one of them receiving a `pending` status and undergoing the qualification procedure, and the other (with an invalid bid) automatically becoming `unsuccessful`.
 
 
 .. include:: tutorial/get-awards.http
@@ -266,7 +266,7 @@ Confirming qualification
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-The organizer **must** upload and confirm the auction protocol `auctionProtocol` and add it to the award within **4 business days after the start of the qualification procedure**. The candidate still has a possibility to upload the protocol, but it is neither mandatory, nor sufficient to move to the next status. If the auction protocol has not been uploaded before the end of `verificationPeriod`, the `award` is automatically transferred to the `unsuccessful` status.
+The organizer **must** upload and confirm the auction protocol `auctionProtocol` and add it to the award within **4 business days after the start of the qualification procedure**. The candidate still has an ability to upload the protocol, but it is neither mandatory, nor sufficient to move to the next status. If the auction protocol has not been uploaded up to the end of `verificationPeriod`, the `award` is automatically transferred to the `unsuccessful` status.
 
 
 .. include:: tutorial/bidder-auction-protocol.http
@@ -276,41 +276,31 @@ The organizer **must** upload and confirm the auction protocol `auctionProtocol`
   :code:
 
 
-It is the organizer's duty to upload and confirm the protocol, although the award will not switch the status to "pending.payment" automatically.
+It is the organizer's duty to upload and confirm the protocol, as well as to switch the award to `active` status.
 
-
-.. include:: tutorial/verify-protocol.http
- :code:
-
-
-Within **20 business days after becoming a candidate** he/she must provide payment and organizer has the same time to confirm the payment. Otherwise, the award will automatically become "unsuccessful":
-
-
-.. include:: tutorial/confirm-qualification.http
-  :code:
 
 .. _Contract_prolongation:
 
 Contract prolongation
 ~~~~~~~~~~~~~~~~~~~~~
 
-Candidate can prolongate contract signing period by creating prolongation
+Organizer can prolong contract signing period by creating a prolongation object.
 
 .. include:: tutorial/prolongation-create.http
     :code:
 
-Prolongation must have documents attached to be prepared for activation
+Prolongation must inclede the documents attached with the data given below:
 
 .. include:: tutorial/prolongation-attach-document.http
     :code:
 
-Created prolongation has status "draft" by default, so there is a need to set status to "applied" to make it active.
+Prolongation created  initially receives a "draft" status, so there is a need to set "applied" to make it active.
 
 .. include:: tutorial/prolongation-apply.http
     :code:
 
-When a contract has been prolongated for first time, a short prolongation period applies.
-It is equal to 42 working days. It's also possible to apply long-term (132 days) prolongation:
+When the contract has been prolongated for first time, a short prolongation (42 working days) period applies.
+It's also possible to apply long-term (132 working days) prolongation:
 just create new :ref:`Prolongation` for the already prolongated :ref:`Contract`, and apply it.
 
 .. include:: tutorial/prolongation-second-time-create.http

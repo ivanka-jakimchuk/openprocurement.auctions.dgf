@@ -457,43 +457,35 @@ msgstr ""
 "другої:  ``\"index\": 2``. У таких випадках спочатку відображатиметься "
 "ілюстрація з ранішою датою публікації."
 
-#: ../../source/tutorial.rst:166
 msgid "We can check that there are three uploaded illustrations."
 msgstr "Можемо перевірити, що є три завантажені ілюстрації."
 
-#: ../../source/tutorial.rst:252
 msgid "After the competitive auction two `awards` are created:"
 msgstr "Після конкурентних торгів, створюються два 'протоколи розгляду':"
 
-#: ../../source/tutorial.rst:317
 msgid "Refusal of waiting by another participant"
 msgstr "Відмова очікування іншим учасником"
 
-#: ../../source/tutorial.rst:251
 msgid ""
 "for the first candidate (a participant that has submitted the highest valid "
-"bid at the auction) - initially has a `pending.verification` status and "
-"awaits auction protocol to be uploaded by the organizer;"
+"bid at the auction) - initially has a `pending` status and awaits auction protocol "
+"to be uploaded by the organizer;"
 msgstr ""
 "для першого кандидата (учасник з найвищою валідною ставкою в аукціоні) - "
-"початково отримує статус ''Очікується протокол'' (\"pending.verification\") "
-"та очікує завантаження протоколу організатором;"
+"початково отримує статус `pending` та очікує завантаження протоколу організатором;"
 
-#: ../../source/tutorial.rst:252
 msgid ""
-"for the second candidate (a participant that has submitted the second "
-"highest valid bid at the auction)."
+"for the second candidate (a participant that has submitted the second highest "
+"valid bid at the auction)- initially has a `pending.waiting` status."
 msgstr ""
 "для другого кандидата (учасник з другою найбільшою валідною ставкою в "
-"аукціоні)"
+"аукціоні) - початково отримує статус `pending.waiting`."
 
-#: ../../source/tutorial.rst:257
 msgid ""
 "There are two more scenarios that can happen after the competitive auction:"
 msgstr ""
 "Існує ще два сценарії, що можуть мати місце після закінчення аукціону:"
 
-#: ../../source/tutorial.rst:255
 msgid ""
 "If the two highest bidders have invalid bids (lower than auction starting "
 "price + minimal step), the awards will not be created at all, and the "
@@ -505,32 +497,20 @@ msgstr ""
 "взагалі, а процедура кваліфікації автоматично отримає статус неуспішної "
 "(\"unsuccessful\"). "
 
-#: ../../source/tutorial.rst:256
 msgid ""
-"If the second highest bidder has a bid that is less than the starting price "
-"+ minimal step, two awards are created, with one of them receiving a "
-"pending.verification status and undergoing the qualification procedure, and "
-"the other (with an invalid bid) automatically becoming \"unsuccessful\"."
+"If the second highest bidder has a bid that is less than the starting price + minimal "
+"step, two awards are created, with one of them receiving a `pending` status and undergoing "
+"the qualification procedure, and the other (with an invalid bid) automatically becoming `unsuccessful`."
 msgstr ""
 "Якщо друга найвища ставка в аукціоні є меншою ніж початкова ціна + "
 "мінімальний крок, створюються два аварди, один з них отримує статус "
-"\"pending.verification\" та проходить процедуру кваліфікації, а другий (з "
-"інвалідною ставкою) автоматично зразу отримує статус \"unsuccessful\"."
+"`pending` та проходить процедуру кваліфікації, а другий (з "
+"інвалідною ставкою) автоматично зразу отримує статус `unsuccessful`."
 
-#: ../../source/tutorial.rst:280
-msgid ""
-"It is the organizer's duty to upload and confirm the protocol, although the "
-"award will not switch the status to \"pending.payment\" automatically."
-msgstr ""
-"Організатор повинен завантажити та підтвердити протокол аукціону, хоча авард"
-" не буде автоматично переведений в статус \"Очікується підписання договору\""
-" автоматично якщо це не буде зроблено."
 
-#: ../../source/tutorial.rst:296
 msgid "Disqualification of a candidate"
 msgstr "Дискваліфікація кандидата."
 
-#: ../../source/tutorial.rst:298
 msgid ""
 "In case of manual disqualification, the organizer has to upload file with "
 "cancellation reason:"
@@ -538,7 +518,6 @@ msgstr ""
 "У випадку ручної дискваліфікації, організатор повинен завантажити файл з "
 "поясненням причини дискваліфікації кандидата."
 
-#: ../../source/tutorial.rst:318
 msgid ""
 "The second candidate (participant that has submitted the second highest "
 "valid bid at the auction) can refuse to wait for the disqualification of the"
@@ -555,37 +534,45 @@ msgstr ""
 "Організатор (ліквідатор) може скасувати аукціон на будь-якому етапі окрім "
 "аукціону в термінальних статусах (unsuccessful, cancelled, complete)."
 
-#: ../../source/tutorial.rst:287
 msgid ""
 "Within **20 business days after becoming a candidate** he/she must provide "
 "payment and organizer has the same time to confirm the payment. Otherwise, "
 "the award will automatically become \"unsuccessful\":"
 msgstr ""
 
-#: ../../source/tutorial.rst:312
 msgid ""
 "Within 20 business days since becoming candidate a new candidate must "
 "confirm qualification with steps described above (:ref:`Qualification`)."
 msgstr ""
 
-#: ../../source/tutorial.rst:327
 msgid ""
 "The candidate has **20 business days after becoming a candidate** to "
 "conclude a contract with the bank based on the results of electronic "
 "auction."
 msgstr ""
 
-#: ../../source/tutorial.rst:269
 msgid ""
-"The organizer **must** upload and confirm the auction protocol "
-"`auctionProtocol` and add it to the award within **4 business days after the"
-" start of the qualification procedure**. The candidate still has a "
-"possibility to upload the protocol, but it is neither mandatory, nor "
-"sufficient to move to the next status. If the auction protocol has not been "
-"uploaded before the end of `verificationPeriod`, the `award` is "
-"automatically transferred to the `unsuccessful` status."
+"The organizer **must** upload and confirm the auction protocol `auctionProtocol` "
+"and add it to the award within **4 business days after the start of the qualification "
+"procedure**. The candidate still has an ability to upload the protocol, but it is "
+"neither mandatory, nor sufficient to move to the next status. If the auction protocol "
+"has not been uploaded up to the end of `verificationPeriod`, the `award` is automatically "
+"transferred to the `unsuccessful` status."
 msgstr ""
+"Організатор **повинен** завантажити та підтвердити протокол аукціону "
+"(`auctionProtocol`) в авард протягом **4-х робочих днів після початку "
+"процедури кваліфікації**. Кандидат також має можливість завантажити "
+"протокол, але це необов'язково та недостатньо для переходу аварда в "
+"наступний статус. Якщо протокол аукціону не завантажено і підтверджено до "
+"кінця періоду верифікації `verificationPeriod`, авард автоматично "
+"переводиться в статус `unsuccessful`."
 
+msgid ""
+"It is the organizer's duty to upload and confirm the protocol, as well as to "
+"switch the award to `active` status."
+msgstr ""
+"Обов'язком організатора в цей час є завантажити протокол аукціону в авард та змінити "
+"статус цього аварду на `active`."
 #~ msgid ""
 #~ "The organizer **must** upload and confirm the auction protocol "
 #~ "`auctionProtocol` and add it to the award within **3 business days after the"
