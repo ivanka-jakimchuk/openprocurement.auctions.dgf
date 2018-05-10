@@ -84,7 +84,7 @@ class CPVCAVClassification(Classification):
             raise ValidationError(BaseType.MESSAGES['choices'].format(unicode(CPV_CODES)))
         elif data.get('scheme') == u'CAV-PS' and code not in CAVPS_CODES:
             raise ValidationError(BaseType.MESSAGES['choices'].format(unicode(CAVPS_CODES)))
-        if code.find("00000-") > 0 and get_auction_creation_date(data) > CLASSIFICATION_PRECISELY_FROM:
+        if code.find("00000-") > 0 and get_auction_creation_date(auction) > CLASSIFICATION_PRECISELY_FROM:
             raise ValidationError('At least {} classification class (XXXX0000-Y) should be specified more precisely'.format(data.get('scheme')))
 
 
@@ -108,7 +108,8 @@ class Item(BaseItem):
 
     def validate_address(self, data, address):
         if not address:
-            if get_auction_creation_date(data) > DGF_ADDRESS_REQUIRED_FROM:
+            auction = get_auction(data['__parent__'])
+            if get_auction_creation_date(auction) > DGF_ADDRESS_REQUIRED_FROM:
                 non_specific_location_cav = data['classification']['scheme'] == u'CAV-PS' and not data['classification']['id'].startswith(CAV_NON_SPECIFIC_LOCATION_UNITS)
                 non_specific_location_cpv = data['classification']['scheme'] == u'CPV' and not data['classification']['id'].startswith(CPV_NON_SPECIFIC_LOCATION_UNITS)
                 if non_specific_location_cav or non_specific_location_cpv:
