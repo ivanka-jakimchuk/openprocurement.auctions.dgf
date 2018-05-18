@@ -137,6 +137,11 @@ Schema
    |ocdsDescription|
    The period when the auction is open for submissions. The end date is the closing date for auction submissions.
 
+:rectificationPeriod:
+   :ref:`period`
+
+   Period for the procedure to be edited. Organizer can optionally set the value for `rectificationPeriod.endDate`.
+
 :auctionPeriod:
    :ref:`period`, required
 

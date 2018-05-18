@@ -90,7 +90,14 @@ msgstr ""
 "спискові елементи, де це можливо. Елементи не повинні дублюватись, замість "
 "цього вкажіть кількість 2."
 
-#: ../../source/standard/auction.rst:69
+msgid ""
+"Period for the procedure to be edited. Organizer can optionally set the value "
+"for `rectificationPeriod.endDate`."
+msgstr ""
+"Період, упродовж якого редагування процедури є доступним. Організатор, на вибір, "
+"може самостійно задати дату закінчення цього періоду."
+
+
 msgid "list of :ref:`Feature` objects"
 msgstr "список об’єктів :ref:`Feature`"
 

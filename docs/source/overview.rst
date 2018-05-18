@@ -13,19 +13,19 @@ There are two procedures:
 Features
 --------
 
-* The only date Organizer has to provide is *Tender.auctionPeriod.startDate*, the rest will be calculated automatically.
-* Optionally Organizer can set *enquiryPeriod.endDate*.
-* If *enquiryPeriod.endDate* is not provided it will be calculated automatically.
-* Organizer can both increase and decrease `value.amount`, `guarantee.amount`, `minimalStep.amount`.
-* `tenderPeriod` must be at least 7 calendar days.
-* Organizer can edit procedure only during *rectificationPeriod*.
+* The only date Organizer has to provide is *auctionPeriod.startDate*, the rest will be calculated automatically.
+* `TenderPeriod` must be at least 7 calendar days.
+* Organizer can optionally set *rectificationPeriod.endDate*.
+* If *rectificationPeriod.endDate* is not provided it will be calculated automatically.
+* Organizer can edit a procedure only during *rectificationPeriod*.
 * Organizer can add and edit documents only during *rectificationPeriod*.
-* As soon as the action is edited, the status of all of the submitted bids will be switched to `invalid`.
-* Procedure can be switched from *draft* status to *active.tendering*.
+* Organizer can both increase and decrease `value.amount`, `guarantee.amount`, `minimalStep.amount`.
+* As soon as the procedure is edited, the status of all of the submitted bids will be switched to `invalid`.
+* Procedure should be switched from *draft* status to *active.tendering* for the process to start.
 * During *active.tendering* period participants can ask questions, submit proposals, and upload documents.
-* There is obligatory participant qualification (*Bid.selfQualified*) via guarantee payment.
+* There is obligatory participant qualification (*bid.selfQualified*) via guarantee payment.
 * The only currency (*Value.currency*) for this procedure is hryvnia (UAH).
-* The items within an auction are allowed to be from different CAV groups.
+* The items within an auction are allowed to be from different CPV & CAV-PS groups.
 
 Conventions
 -----------
